@@ -3,51 +3,191 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Athmeeya — A Little Reveal</title>
+<title>A Little Something to Unwrap</title>
 <style>
+:root{
+  --pink:#f3a0a5;
+  --pink2:#d96f82;
+  --gold:#d8a64b;
+  --cream:#f6e5d2;
+}
 *{box-sizing:border-box}
 html,body{margin:0;width:100%;height:100%;background:#000;overflow:hidden}
-body{font-family:Georgia,"Times New Roman",serif;color:#f3a0a5;cursor:pointer}
-.stage{position:relative;width:100%;height:100%;display:grid;place-items:center;background:#000}
-.screen{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:8vw;
-opacity:0;transform:scale(.985);transition:opacity .8s ease,transform .8s ease;pointer-events:none}
-.screen.active{opacity:1;transform:scale(1)}
-.line{font-size:clamp(26px,4vw,52px);line-height:1.25}
-.tap{font:13px Arial,sans-serif;letter-spacing:.12em;color:rgba(255,255,255,.4);margin-top:24px}
-.logo-wrap{width:min(78vw,680px);display:flex;justify-content:center}
-.logo{width:100%;height:auto;display:block}
+body{font-family:Georgia,"Times New Roman",serif;color:var(--pink)}
+.stage{position:relative;width:100%;height:100%;background:#000;overflow:hidden}
+.screen{
+  position:absolute;inset:0;display:grid;place-items:center;text-align:center;
+  padding:6vw;opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .7s ease,visibility .7s ease;
+}
+.screen.active{opacity:1;visibility:visible;pointer-events:auto}
+.line{font-size:clamp(27px,4vw,52px);line-height:1.28;max-width:900px}
+.tap{
+  margin-top:25px;font:13px Arial,sans-serif;letter-spacing:.12em;
+  color:rgba(255,255,255,.5);text-transform:uppercase
+}
+
+/* Gift reveal */
+.reveal-screen{background:radial-gradient(circle at 50% 55%,#160e12 0,#050405 42%,#000 75%)}
+.reveal-title{
+  position:absolute;top:9vh;width:100%;font-size:clamp(23px,3vw,38px);
+  letter-spacing:.02em
+}
+.gift-scene{
+  position:relative;width:min(88vw,650px);height:min(70vh,520px);
+  display:grid;place-items:center
+}
+.gift{
+  position:absolute;left:50%;top:52%;width:min(48vw,300px);height:min(34vw,205px);
+  transform:translate(-50%,-50%);z-index:3;
+  filter:drop-shadow(0 18px 25px rgba(0,0,0,.55));
+  transition:opacity .8s ease,transform 1s ease
+}
+.box{
+  position:absolute;left:50%;bottom:0;width:100%;height:62%;
+  transform:translateX(-50%);
+  background:linear-gradient(145deg,#f5e0c8,#e8c9a7);
+  border:2px solid rgba(216,166,75,.7);border-radius:3px
+}
+.box:before{
+  content:"";position:absolute;left:42%;top:0;width:16%;height:100%;
+  background:linear-gradient(90deg,#b94f68,#f19aa1,#b94f68)
+}
+.lid{
+  position:absolute;left:50%;top:17%;width:112%;height:25%;
+  transform:translateX(-50%);border-radius:5px;
+  background:linear-gradient(145deg,#f8e5cf,#e7c6a2);
+  border:2px solid rgba(216,166,75,.7);z-index:4
+}
+.lid:before{
+  content:"";position:absolute;left:43%;top:0;width:14%;height:100%;
+  background:linear-gradient(90deg,#b94f68,#f19aa1,#b94f68)
+}
+.ribbon-v{
+  position:absolute;left:43%;bottom:0;width:14%;height:100%;
+  background:linear-gradient(90deg,#b94f68,#f19aa1,#b94f68);z-index:5
+}
+.ribbon-h{
+  position:absolute;left:0;top:38%;width:100%;height:20%;
+  background:linear-gradient(#b94f68,#f19aa1,#b94f68);z-index:5
+}
+.bow{
+  position:absolute;left:50%;top:-9%;width:105px;height:65px;
+  transform:translateX(-50%);z-index:8
+}
+.bow:before,.bow:after{
+  content:"";position:absolute;top:5px;width:53px;height:43px;
+  border:10px solid #df7d8c;background:#f2a1a8;border-radius:65% 35% 65% 35%
+}
+.bow:before{right:49%;transform:rotate(-20deg)}
+.bow:after{left:49%;transform:rotate(20deg)}
+.knot{position:absolute;left:50%;top:19px;width:27px;height:27px;
+  transform:translateX(-50%);background:#d76e7e;border-radius:50%;z-index:2}
+.logo-pop{
+  position:absolute;left:50%;top:55%;width:min(62vw,430px);height:min(62vw,430px);
+  transform:translate(-50%,-50%) scale(.15);opacity:0;z-index:10;
+  display:grid;place-items:center;
+}
+.logo-pop img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.sparkles{position:absolute;inset:0;pointer-events:none;opacity:0}
+.spark{
+  position:absolute;width:6px;height:6px;border-radius:50%;background:#f7c96a;
+  box-shadow:0 0 12px #f7c96a
+}
+.spark:nth-child(1){left:18%;top:44%}.spark:nth-child(2){left:30%;top:20%}
+.spark:nth-child(3){left:71%;top:27%}.spark:nth-child(4){left:83%;top:52%}
+.spark:nth-child(5){left:24%;top:69%}.spark:nth-child(6){left:75%;top:73%}
+.spark:nth-child(7){left:51%;top:13%}.spark:nth-child(8){left:55%;top:82%}
+
+.reveal-screen.play .gift{animation:giftOpen 2.5s cubic-bezier(.2,.8,.2,1) forwards}
+.reveal-screen.play .lid{animation:lidOpen 1.15s .55s ease-in forwards}
+.reveal-screen.play .bow{animation:bowOpen 1.05s .45s ease-in forwards}
+.reveal-screen.play .logo-pop{animation:logoRise 1.5s 1.45s cubic-bezier(.16,.84,.28,1) forwards}
+.reveal-screen.play .sparkles{animation:sparkShow 1.8s 1.45s ease-out forwards}
+@keyframes giftOpen{0%,45%{transform:translate(-50%,-50%) scale(1)}100%{transform:translate(-50%,-50%) scale(.72);opacity:0}}
+@keyframes lidOpen{0%{transform:translateX(-50%) rotate(0)}100%{transform:translate(-50%,-105px) rotate(-7deg);opacity:0}}
+@keyframes bowOpen{0%{transform:translateX(-50%) scale(1)}100%{transform:translate(-50%,-80px) scale(.4);opacity:0}}
+@keyframes logoRise{0%{transform:translate(-50%,20%) scale(.15);opacity:0}65%{opacity:1}100%{transform:translate(-50%,-50%) scale(1);opacity:1}}
+@keyframes sparkShow{0%{opacity:0;transform:scale(.4)}40%{opacity:1}100%{opacity:0;transform:scale(1.5)}}
+
+.continue-after{
+  position:absolute;bottom:6vh;width:100%;text-align:center;
+  opacity:0;pointer-events:none;transition:opacity .5s 3s
+}
+.reveal-screen.play .continue-after{opacity:1;pointer-events:auto}
+
+.closing{max-width:900px;line-height:1.35}
+.closing-logo{width:min(30vw,210px);max-height:28vh;object-fit:contain;margin-bottom:18px}
+.closing-main{font-size:clamp(24px,3.3vw,44px)}
+.closing-sub{margin-top:22px;font:clamp(16px,1.8vw,23px) Georgia,"Times New Roman",serif;color:rgba(243,160,165,.88)}
+.closing-sub a{color:var(--pink);text-decoration:none}
 .flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
 .flash.on{animation:flash .45s ease}
-@keyframes flash{0%{opacity:0}25%{opacity:.12}100%{opacity:0}}
+@keyframes flash{0%{opacity:0}25%{opacity:.10}100%{opacity:0}}
 </style>
 </head>
 <body>
 <div class="stage" id="stage">
+
 <section class="screen active" id="s1">
-<div><div class="line">Here’s to a new little beginning…</div><div class="tap">tap to continue</div></div>
+ <div><div class="line">Here’s to a new little beginning…</div><div class="tap">Tap anywhere</div></div>
 </section>
+
 <section class="screen" id="s2">
-<div><div class="line">For moments, big and little.</div><div class="tap">tap to reveal</div></div>
+ <div><div class="line">For moments, big and little.</div><div class="tap">Tap anywhere</div></div>
 </section>
-<section class="screen" id="s3">
-<div class="logo-wrap"><img class="logo" src="athmeeya-logo.png" alt="Athmeeya logo"></div>
+
+<section class="screen reveal-screen" id="s3">
+ <div class="reveal-title">Unwrap something special… ♡</div>
+ <div class="gift-scene">
+  <div class="gift">
+   <div class="box"></div><div class="ribbon-v"></div><div class="ribbon-h"></div>
+   <div class="lid"></div><div class="bow"><div class="knot"></div></div>
+  </div>
+  <div class="logo-pop"><img src="athmeeya-logo.png" alt="Athmeeya logo"></div>
+  <div class="sparkles">
+   <i class="spark"></i><i class="spark"></i><i class="spark"></i><i class="spark"></i>
+   <i class="spark"></i><i class="spark"></i><i class="spark"></i><i class="spark"></i>
+  </div>
+ </div>
+ <div class="continue-after tap">Tap to continue</div>
 </section>
+
+<section class="screen" id="s4">
+ <div class="closing">
+  <img class="closing-logo" src="athmeeya-logo.png" alt="Athmeeya logo">
+  <div class="closing-main">A little something to make them smile. ♡</div>
+  <div class="closing-sub">
+   Follow us on Instagram <a href="https://instagram.com/athmeeya.moments" target="_blank">@athmeeya.moments</a><br>
+   &amp; place your order to surprise your loved ones.
+  </div>
+ </div>
+</section>
+
 <div class="flash" id="flash"></div>
 </div>
+
 <script>
 let step=1;
-const screens=[null,document.getElementById('s1'),document.getElementById('s2'),document.getElementById('s3')];
+const screens=[null,s1=document.getElementById('s1'),s2=document.getElementById('s2'),s3=document.getElementById('s3'),s4=document.getElementById('s4')];
 const flash=document.getElementById('flash');
+
 function go(n){
- screens[step].classList.remove('active');
- step=n;
- screens[step].classList.add('active');
- flash.classList.remove('on'); void flash.offsetWidth; flash.classList.add('on');
+  screens[step].classList.remove('active');
+  step=n;
+  screens[step].classList.add('active');
+  flash.classList.remove('on'); void flash.offsetWidth; flash.classList.add('on');
+  if(step===3){
+    s3.classList.remove('play'); void s3.offsetWidth; s3.classList.add('play');
+  }
 }
-document.getElementById('stage').addEventListener('click',()=>{if(step<3)go(step+1)});
+document.getElementById('stage').addEventListener('click',()=>{
+  if(step<3){go(step+1);return}
+  if(step===3 && s3.classList.contains('play')){go(4)}
+});
 document.addEventListener('keydown',e=>{
- if((e.key==='Enter'||e.key===' ')&&step<3){e.preventDefault();go(step+1)}
- if(e.key==='Escape')go(1);
+  if((e.key==='Enter'||e.key===' ')&&step<4){e.preventDefault(); if(step<3)go(step+1); else if(step===3&&s3.classList.contains('play'))go(4)}
+  if(e.key==='Escape')go(1);
 });
 </script>
 </body>
