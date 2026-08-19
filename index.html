@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Athmeeya — A Little Reveal</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;background:#000;overflow:hidden}
+body{font-family:Georgia,"Times New Roman",serif;color:#f3a0a5;cursor:pointer}
+.stage{position:relative;width:100%;height:100%;display:grid;place-items:center;background:#000}
+.screen{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:8vw;
+opacity:0;transform:scale(.985);transition:opacity .8s ease,transform .8s ease;pointer-events:none}
+.screen.active{opacity:1;transform:scale(1)}
+.line{font-size:clamp(26px,4vw,52px);line-height:1.25}
+.tap{font:13px Arial,sans-serif;letter-spacing:.12em;color:rgba(255,255,255,.4);margin-top:24px}
+.logo-wrap{width:min(78vw,680px);display:flex;justify-content:center}
+.logo{width:100%;height:auto;display:block}
+.flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+.flash.on{animation:flash .45s ease}
+@keyframes flash{0%{opacity:0}25%{opacity:.12}100%{opacity:0}}
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+<section class="screen active" id="s1">
+<div><div class="line">Here’s to a new little beginning…</div><div class="tap">tap to continue</div></div>
+</section>
+<section class="screen" id="s2">
+<div><div class="line">For moments, big and little.</div><div class="tap">tap to reveal</div></div>
+</section>
+<section class="screen" id="s3">
+<div class="logo-wrap"><img class="logo" src="athmeeya-logo.png" alt="Athmeeya logo"></div>
+</section>
+<div class="flash" id="flash"></div>
+</div>
+<script>
+let step=1;
+const screens=[null,document.getElementById('s1'),document.getElementById('s2'),document.getElementById('s3')];
+const flash=document.getElementById('flash');
+function go(n){
+ screens[step].classList.remove('active');
+ step=n;
+ screens[step].classList.add('active');
+ flash.classList.remove('on'); void flash.offsetWidth; flash.classList.add('on');
+}
+document.getElementById('stage').addEventListener('click',()=>{if(step<3)go(step+1)});
+document.addEventListener('keydown',e=>{
+ if((e.key==='Enter'||e.key===' ')&&step<3){e.preventDefault();go(step+1)}
+ if(e.key==='Escape')go(1);
+});
+</script>
+</body>
+</html>
