@@ -2,181 +2,119 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Something Special ♡</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Something to Unwrap</title>
 <style>
 *{box-sizing:border-box}
-html,body{margin:0;width:100%;min-height:100%;background:#080609;color:#fff;font-family:Georgia,"Times New Roman",serif}
+html,body{margin:0;min-height:100%;font-family:Georgia,"Times New Roman",serif;background:#050304;color:#fff}
 body{overflow-x:hidden}
-.page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:16px;background:#080609}
-.hidden{display:none!important}
-.card{
- width:min(96vw,1050px);min-height:calc(100vh - 32px);position:relative;overflow:hidden;
- border:1px solid rgba(245,200,105,.28);border-radius:12px;
- background:
- radial-gradient(circle at 12% 12%,rgba(242,128,157,.14),transparent 20%),
- radial-gradient(circle at 88% 10%,rgba(245,190,80,.13),transparent 20%),
- radial-gradient(circle at 50% 65%,rgba(239,92,133,.07),transparent 38%),
- #080609;
- box-shadow:0 0 55px rgba(239,125,157,.12);
- display:flex;flex-direction:column;align-items:center;justify-content:center;
-}
-.start-card{padding:28px 24px 35px}
-.open-title{font-size:clamp(38px,7vw,72px);font-weight:400;margin:0;text-align:center;line-height:1.03}
-.open-title .pink{color:#f29ab4}
-.script{font-family:"Brush Script MT","Segoe Script",cursive;font-size:clamp(35px,6vw,66px);font-style:italic;margin:8px 0;color:#fff}
-.only{font-size:clamp(18px,2.5vw,25px);color:#f4c85d;margin:9px 0 24px}
-.spark{position:absolute;color:#f4c85d;font-size:22px}
-.pink-spark{color:#f29ab4}
-.s1{top:14%;left:22%}.s2{top:18%;right:20%}.s3{top:9%;right:24%}.s4{bottom:16%;left:23%}.s5{bottom:14%;right:20%}
-.gift{
- width:min(55vw,360px);height:min(44vw,300px);min-height:235px;position:relative;cursor:pointer;
- margin:2px auto 0;filter:drop-shadow(0 20px 30px rgba(0,0,0,.65));
- transition:transform .2s
-}
-.gift:hover{transform:scale(1.02)}
-.box{position:absolute;left:10%;right:10%;bottom:8%;height:48%;border-radius:8px;
- background:linear-gradient(145deg,#9f456b,#e584a4 45%,#8d365b);
- border:2px solid #efbd65;box-shadow:inset 0 0 35px rgba(255,230,170,.12)}
-.box:before{content:"";position:absolute;left:43%;top:0;width:15%;height:100%;background:#f1bb62}
-.lid{position:absolute;left:5%;right:5%;top:31%;height:18%;border-radius:8px;
- background:linear-gradient(145deg,#b9577c,#f094ae 45%,#9d3f66);border:2px solid #efbd65;z-index:3}
-.lid:before{content:"";position:absolute;left:43%;top:0;width:15%;height:100%;background:#f1bb62}
-.bow{position:absolute;z-index:5;left:36%;top:13%;width:28%;height:24%}
-.bow:before,.bow:after{content:"";position:absolute;width:48%;height:72%;border:8px solid #f3a2ba;border-radius:60% 55% 15% 60%;top:0}
-.bow:before{left:0;transform:rotate(22deg)}.bow:after{right:0;transform:scaleX(-1) rotate(22deg)}
-.knot{position:absolute;left:43%;top:28%;width:16%;height:32%;border-radius:50%;background:#f1bd62;z-index:2}
-.tag{position:absolute;right:7%;top:45%;z-index:6;background:#f6e2c7;color:#7e3b4f;padding:9px 10px;font-size:13px;transform:rotate(8deg);border-radius:2px}
-.tap{font-size:clamp(17px,2.5vw,25px);margin-top:5px;color:#fff}
-.tap b{color:#f29ab4}
-.gift.open .lid{animation:lid .95s forwards}.gift.open .bow{animation:bow .95s forwards}.gift.open .tag{animation:tag .95s forwards}
-@keyframes lid{to{transform:translateY(-125px) rotate(-7deg);opacity:.15}}
-@keyframes bow{to{transform:translateY(-125px) rotate(18deg);opacity:0}}
-@keyframes tag{to{transform:translateY(-100px) rotate(12deg);opacity:0}}
-
-.reveal-card{padding:35px 30px}
-.reveal-inner{width:100%;display:flex;flex-direction:column;align-items:center;text-align:center;animation:appear .9s ease}
-@keyframes appear{from{opacity:0;transform:translateY(25px) scale(.96)}to{opacity:1;transform:none}}
-.logo{width:min(68vw,390px);max-height:390px;object-fit:contain;filter:drop-shadow(0 0 28px rgba(246,170,190,.23))}
-.magical{font-size:clamp(18px,3vw,28px);margin:18px 0;color:#fff}
-.magical span{color:#f29ab4}
-.final-btn{margin-top:24px;border:1px solid #efbd65;border-radius:30px;padding:12px 24px;background:#130e13;color:#f7dce5;font-size:16px;cursor:pointer}
-
-.final-card{justify-content:flex-start;padding:38px 38px 28px}
-.final-title{font-size:clamp(36px,6vw,68px);font-weight:400;line-height:1.02;margin:5px 0 0;text-align:center}
-.final-title .pink{color:#f29ab4;font-family:"Brush Script MT","Segoe Script",cursive;font-style:italic}
-.gold-line{width:170px;height:2px;background:linear-gradient(90deg,transparent,#f3c45f,transparent);margin:14px auto 18px;position:relative}
-.gold-line:after{content:"♥";position:absolute;left:50%;top:-12px;transform:translateX(-50%);color:#f3c45f;font-size:15px}
-.final-intro{font-size:clamp(17px,2.5vw,24px);line-height:1.45;text-align:center;max-width:680px;margin:0 auto 24px}
-.features{display:grid;grid-template-columns:1fr 44px 1fr;align-items:center;gap:15px;width:min(92%,760px);margin:8px auto 24px}
-.feature{display:flex;align-items:center;gap:16px;min-height:105px;text-align:left}
-.icon-circle{width:72px;height:72px;min-width:72px;border-radius:50%;background:#171319;display:grid;place-items:center;box-shadow:inset 0 0 0 1px rgba(245,197,92,.06)}
-.icon{font-size:35px;color:#f3c55f}
-.feature p{margin:0;font-size:clamp(17px,2.3vw,23px);line-height:1.25}
-.feature p strong{color:#f29ab4}
-.divider{height:82px;border-left:1px dotted #f3c55f;position:relative}
-.divider:after{content:"♥";position:absolute;top:50%;left:-9px;transform:translateY(-50%);background:#080609;color:#f29ab4;padding:3px;font-size:19px}
-.insta{
- width:min(82%,650px);border:2px solid #f0c45d;border-radius:28px;padding:13px 24px;
- display:flex;align-items:center;justify-content:center;gap:18px;color:#f29ab4;
- font-family:Arial,sans-serif;font-size:clamp(19px,3vw,31px);font-weight:600;text-decoration:none;
- background:rgba(15,11,15,.8);box-shadow:0 0 25px rgba(241,171,96,.06)
-}
-.insta-svg{width:43px;height:43px;flex:none}
-.thanks{font-size:clamp(17px,2.5vw,24px);margin:22px 0 8px}
-.leaf{position:absolute;color:#e984a6;font-size:70px;opacity:.65}
-.l1{left:7%;bottom:6%;transform:rotate(-18deg)}.l2{right:7%;bottom:6%;transform:scaleX(-1) rotate(-18deg)}
-.corner{position:absolute;color:#f2c45e;font-size:26px}.c1{top:11%;left:14%}.c2{top:13%;right:14%}.c3{bottom:12%;left:16%}.c4{bottom:10%;right:16%}
-@media(max-width:650px){
- .page{padding:7px}.card{min-height:calc(100vh - 14px);border-radius:9px}
- .start-card{padding:20px 14px}.gift{width:82vw;height:60vw;min-height:210px}
- .final-card{padding:28px 15px 22px}.features{grid-template-columns:1fr;gap:8px}
- .divider{display:none}.feature{justify-content:center;text-align:left}.insta{width:95%}
- .leaf{font-size:45px}.l1{left:1%}.l2{right:1%}
-}
+.page{min-height:100vh;display:none;position:relative;overflow:hidden;padding:8vh 8vw;background:
+radial-gradient(circle at 75% 20%,rgba(255,177,204,.16),transparent 28%),
+radial-gradient(circle at 25% 80%,rgba(255,190,70,.10),transparent 30%),
+#050304}
+.page.active{display:flex;align-items:center;justify-content:center}
+.inner{width:min(900px,100%);text-align:center;position:relative;z-index:2}
+h1,h2,p{margin:0}
+.eyebrow{font-size:clamp(16px,2.5vw,25px);letter-spacing:2px;margin-bottom:16px}
+.big{font-size:clamp(38px,7vw,76px);line-height:1.05;color:#f6a6c0}
+.gold{color:#f4cf69}
+.body{font-size:clamp(19px,3vw,30px);line-height:1.5;margin:22px auto;max-width:700px;color:#f4edf0}
+.btn{border:1px solid #e8bf4f;color:#f6d878;background:rgba(0,0,0,.35);padding:14px 28px;border-radius:40px;font-size:18px;cursor:pointer;transition:.25s}
+.btn:hover{transform:translateY(-2px);background:rgba(240,180,70,.12)}
+.decor{position:absolute;inset:0;pointer-events:none}
+.bokeh{position:absolute;width:18px;height:18px;border-radius:50%;background:#ffd56d;box-shadow:0 0 25px #ffd56d;opacity:.7}
+.flower{position:absolute;color:#f4a5bf;font-size:42px;opacity:.7}
+.card{max-width:760px;margin:auto;padding:35px;border:1px solid rgba(244,207,105,.4);border-radius:28px;background:rgba(20,8,14,.48);box-shadow:0 20px 80px rgba(255,120,170,.12)}
+.gift-wrap{position:relative;width:min(330px,75vw);height:300px;margin:35px auto 10px;cursor:pointer;filter:drop-shadow(0 25px 35px rgba(255,80,140,.25))}
+.gift{position:absolute;left:25px;right:25px;bottom:20px;height:190px;background:linear-gradient(135deg,#ff8eae,#c82e69);border-radius:8px 8px 14px 14px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.16),0 12px 35px rgba(0,0,0,.5)}
+.lid{position:absolute;left:8px;right:8px;top:52px;height:55px;background:linear-gradient(135deg,#ffb1c6,#df4c7d);border-radius:8px;z-index:3;box-shadow:0 8px 20px rgba(0,0,0,.35)}
+.ribbon-v{position:absolute;left:43%;width:14%;top:0;bottom:0;background:#f7cf67;z-index:2}
+.ribbon-h{position:absolute;left:0;right:0;top:42%;height:17%;background:#f7cf67;z-index:2}
+.bow{position:absolute;top:18px;left:50%;transform:translateX(-50%);z-index:5}
+.bow:before,.bow:after{content:"";display:inline-block;width:58px;height:38px;border:9px solid #f7cf67;border-radius:60% 20% 60% 20%;transform:rotate(28deg);margin:-4px}
+.bow:after{transform:scaleX(-1) rotate(28deg)}
+.tap{color:#f7a7c0;font-size:clamp(24px,4vw,38px);font-style:italic}
+.reveal{position:relative;min-height:100vh}
+.logo{width:min(390px,72vw);max-height:55vh;object-fit:contain;opacity:0;transform:translateY(180px) scale(.45);transition:1.2s cubic-bezier(.2,.8,.2,1);filter:drop-shadow(0 0 30px rgba(255,198,70,.45))}
+.revealed .logo{opacity:1;transform:translateY(0) scale(1)}
+.spark{position:absolute;left:50%;top:50%;width:8px;height:8px;border-radius:50%;background:#ffd86b;opacity:0}
+.revealed .spark{animation:burst 1.5s ease-out forwards}
+@keyframes burst{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--x),var(--y)) scale(.2)}}
+.note{font-size:clamp(18px,2.7vw,27px);margin-top:25px;color:#f7e9ee}
+.insta{display:inline-flex;align-items:center;gap:12px;margin-top:24px;padding:14px 25px;border:1px solid #e7bd4f;border-radius:40px;color:#f7a7c0;font-size:clamp(18px,3vw,27px);background:rgba(255,255,255,.03)}
+.insta-icon{font-family:Arial,sans-serif;font-weight:bold;color:#fff;background:linear-gradient(45deg,#feda75,#d62976,#4f5bd5);border-radius:9px;padding:3px 7px}
 </style>
 </head>
 <body>
 
-<section id="start" class="page">
- <div class="card start-card">
-  <span class="spark pink-spark s1">✧</span><span class="spark s2">✦</span><span class="spark pink-spark s3">♡</span>
-  <span class="spark s4">✧</span><span class="spark pink-spark s5">♡</span>
-  <h1 class="open-title">Something <span class="pink">special</span> ♡</h1>
-  <div class="script">is waiting for you...</div>
-  <div class="only">Only for you ♥</div>
-  <div id="gift" class="gift" tabindex="0" role="button" aria-label="Tap the gift to unwrap">
-    <div class="lid"></div><div class="bow"><div class="knot"></div></div><div class="box"></div>
-    <div class="tag">For<br>you</div>
-  </div>
-  <div class="tap">☝︎ &nbsp; <b>Tap the box to unwrap</b> &nbsp; ✨</div>
- </div>
+<section class="page active" id="p1">
+<div class="decor"><span class="bokeh" style="left:10%;top:18%"></span><span class="bokeh" style="left:82%;top:25%;width:12px;height:12px"></span><span class="bokeh" style="left:70%;top:72%"></span><span class="flower" style="left:8%;bottom:15%">✿</span><span class="flower" style="right:8%;top:12%">❀</span></div>
+<div class="inner card">
+<div class="eyebrow">Here’s to a</div>
+<h1 class="big">new little beginning...</h1>
+<p class="body">For moments, little and big,<br>that deserve to be remembered. ♡</p>
+<button class="btn" onclick="go(2)">Continue ✨</button>
+</div>
 </section>
 
-<section id="reveal" class="page hidden">
- <div class="card reveal-card">
-  <div class="reveal-inner">
-   <div style="font-size:28px;color:#f3bd62">✦ ✧ ✦</div>
-   <img class="logo" src="athmeeya-logo.png" alt="Athmeeya Moments">
-   <div class="magical">The box opens and something <span>magical appears</span> ✨</div>
-   <button class="final-btn" onclick="showFinal()">One last little note ♡</button>
-  </div>
- </div>
+<section class="page" id="p2">
+<div class="inner card">
+<div class="eyebrow">Some moments</div>
+<h1 class="big">are meant to be<br>made special.</h1>
+<p class="body">And some surprises are meant to be opened with a little curiosity... 🎀</p>
+<button class="btn" onclick="go(3)">🎁 There’s something for you</button>
+</div>
 </section>
 
-<section id="final" class="page hidden">
- <div class="card final-card">
-  <span class="corner c1">✦</span><span class="corner c2">♡</span><span class="corner c3">✧</span><span class="corner c4">♡</span>
-  <span class="leaf l1">❧</span><span class="leaf l2">❧</span>
+<section class="page" id="p3">
+<div class="inner">
+<div class="tap">Tap the box to unwrap</div>
+<div class="gift-wrap" onclick="reveal()">
+<div class="gift"></div><div class="ribbon-v"></div><div class="ribbon-h"></div><div class="lid"></div><div class="bow"></div>
+</div>
+<p class="body" style="font-size:18px">A little surprise is waiting inside. ♡</p>
+</div>
+</section>
 
-  <h2 class="final-title">Made with love,<br><span class="pink">to make you smile. ♡</span></h2>
-  <div class="gold-line"></div>
-  <p class="final-intro">Thoughtful surprises for every moment,<br>because every little gesture matters. ✨</p>
+<section class="page reveal" id="p4">
+<div class="inner">
+<img class="logo" src="athmeeya-logo.png" alt="Athmeeya logo">
+<p class="note">Made with love, for your special moments. ♡</p>
+</div>
+<div id="sparks"></div>
+</section>
 
-  <div class="features">
-    <div class="feature">
-      <div class="icon-circle"><span class="icon">🎁</span></div>
-      <p>Surprise your<br>loved ones with<br><strong>beautifully<br>crafted gifts</strong> 💕</p>
-    </div>
-    <div class="divider"></div>
-    <div class="feature">
-      <div class="icon-circle"><span class="icon">♡</span></div>
-      <p>To order or<br>know more 💗</p>
-    </div>
-  </div>
-
-  <a class="insta" href="https://instagram.com/athmeeya.moments" target="_blank" rel="noopener">
-    <svg class="insta-svg" viewBox="0 0 100 100" aria-hidden="true">
-      <defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#ff9a5b"/><stop offset=".5" stop-color="#f43b8f"/><stop offset="1" stop-color="#875cff"/></linearGradient></defs>
-      <rect x="8" y="8" width="84" height="84" rx="23" fill="url(#ig)"/>
-      <rect x="28" y="28" width="44" height="44" rx="13" fill="none" stroke="#fff" stroke-width="6"/>
-      <circle cx="50" cy="50" r="10" fill="none" stroke="#fff" stroke-width="6"/>
-      <circle cx="70" cy="30" r="4.5" fill="#fff"/>
-    </svg>
-    <span>@athmeeya.moments</span>
-  </a>
-
-  <div class="thanks">Thank you for supporting small! <span style="color:#f29ab4">♥</span></div>
-  <div class="gold-line" style="width:190px;margin-top:3px"></div>
- </div>
+<section class="page" id="p5">
+<div class="inner card">
+<div class="eyebrow">A little something</div>
+<h1 class="big">to make them smile. ♡</h1>
+<p class="body">Follow us on Instagram &amp; place your order<br>to surprise your loved ones with<br>something made especially for them. 💝</p>
+<div class="insta"><span class="insta-icon">◎</span><span>@athmeeya.moments</span></div>
+</div>
 </section>
 
 <script>
-const gift=document.getElementById('gift');
-function openGift(){
- if(gift.classList.contains('open')) return;
- gift.classList.add('open');
- setTimeout(()=>{
-   document.getElementById('start').classList.add('hidden');
-   document.getElementById('reveal').classList.remove('hidden');
- },1000);
-}
-gift.addEventListener('click',openGift);
-gift.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')openGift()});
-function showFinal(){
- document.getElementById('reveal').classList.add('hidden');
- document.getElementById('final').classList.remove('hidden');
+function go(n){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ document.getElementById('p'+n).classList.add('active');
  window.scrollTo(0,0);
+}
+function reveal(){
+ go(4);
+ const page=document.getElementById('p4');
+ page.classList.remove('revealed');
+ void page.offsetWidth;
+ page.classList.add('revealed');
+ const s=document.getElementById('sparks'); s.innerHTML='';
+ for(let i=0;i<55;i++){
+   const e=document.createElement('span'); e.className='spark';
+   const a=Math.random()*Math.PI*2, d=140+Math.random()*330;
+   e.style.setProperty('--x',Math.cos(a)*d+'px');
+   e.style.setProperty('--y',Math.sin(a)*d+'px');
+   e.style.animationDelay=(Math.random()*.45)+'s';
+   s.appendChild(e);
+ }
+ setTimeout(()=>{ page.onclick=()=>go(5); },1700);
 }
 </script>
 </body>
