@@ -1,15 +1,14 @@
-ATHMEEYA FINAL WEBSITE
+ATHMEEYA MOMENTS — FINAL REPLACEMENT
 
-Replace these two files in your GitHub repository:
-- index.html
-- athmeeya-logo.png
+Replace the website files in your GitHub repository with:
+1. index.html
+2. athmeeya-logo.png
+3. final-page.png
 
-Leave other files alone if you want; they are not used by this version.
+The first two pages stay as before.
+Page 3 keeps the clickable gift-box reveal and uses the exact Athmeeya logo.
+Page 4 is the new final page matching the supplied reference design.
 
-Flow:
-1. Here’s to a new little beginning…
-2. For moments, big and little.
-3. Visitor taps the wrapped gift -> it unwraps -> the supplied Athmeeya logo rises out.
-4. Final page with Instagram @athmeeya.moments and order message.
+You can delete old panel1.png, panel2.png, panel3.png and README.txt if they are no longer used.
 
-Important: the gift does not open automatically.
+Instagram: @athmeeya.moments

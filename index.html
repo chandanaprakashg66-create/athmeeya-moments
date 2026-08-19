@@ -84,6 +84,14 @@ background:#ffffff08}
 .gift-area{transform:scale(.84);margin-top:8px;margin-bottom:-25px}
 .logo-pop{width:70vw}
 }
+
+.final-art{position:absolute;inset:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#050306;overflow:hidden}
+.final-art img{width:100%;height:100%;object-fit:cover;display:block}
+.final-instagram-link{position:absolute;left:50%;top:70%;width:46%;height:13%;transform:translate(-50%,-50%);border-radius:999px;cursor:pointer}
+@media (max-width:700px){
+  .final-art img{object-fit:contain}
+  .final-instagram-link{top:69%;width:68%;height:11%}
+}
 </style>
 </head>
 <body>
@@ -120,16 +128,9 @@ background:#ffffff08}
 </section>
 
 <section class="page" id="p4">
- <div class="final-inner">
-  <div class="decor d1">✦</div><div class="decor d2">♡</div>
-  <h2>A little something to make them <em>smile. ♡</em></h2>
-  <p>Thoughtful surprises for every moment,<br>because every little gesture matters. ✨</p>
-  <div class="order">Surprise your loved ones with beautifully crafted gifts.<br>Place your order and make their moment special. 💝</div>
-  <a class="insta" href="https://www.instagram.com/athmeeya.moments/" target="_blank" rel="noopener">
-   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zm4.5 3.3A4.7 4.7 0 1 1 7.3 12 4.7 4.7 0 0 1 12 7.3zm0 2A2.7 2.7 0 1 0 14.7 12 2.7 2.7 0 0 0 12 9.3zM17.3 6.1a1.1 1.1 0 1 1-1.1 1.1 1.1 0 0 1 1.1-1.1z"/></svg>
-   @athmeeya.moments
-  </a>
-  <div class="thanks">♡ Thank you for being part of the moment ♡</div>
+ <div class="final-art" role="img" aria-label="Athmeeya Moments — made with love">
+   <img src="final-page.png" alt="Made with love, to make you smile. Athmeeya Moments Instagram and ordering information.">
+   <a class="final-instagram-link" href="https://www.instagram.com/athmeeya.moments/" target="_blank" rel="noopener" aria-label="Visit Athmeeya Moments on Instagram"></a>
  </div>
 </section>
 
