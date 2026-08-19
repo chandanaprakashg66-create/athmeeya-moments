@@ -31,7 +31,7 @@ h1{font-size:clamp(48px,8vw,88px);font-weight:500;line-height:.95;margin:0 0 18p
 .prompt{font-size:22px;color:#f4c95d;margin-top:30px;animation:pulse 1.8s infinite}
 @keyframes pulse{50%{opacity:.55;transform:translateY(3px)}}
 
-.number{position:absolute;top:24px;left:28px;width:40px;height:40px;border-radius:50%;background:#f58ab6;color:#150910;display:grid;place-items:center;font:bold 22px Georgia}
+.number{display:none;position:absolute;top:24px;left:28px;width:40px;height:40px;border-radius:50%;background:#f58ab6;color:#150910;display:grid;place-items:center;font:bold 22px Georgia}
 .card-title{font-size:clamp(42px,6vw,68px);line-height:1.05;margin-bottom:8px}
 .small-script{font-family:'Great Vibes';font-size:clamp(38px,6vw,62px);color:#f58ab6}
 .decor{font-size:30px;color:#f4c95d;margin:15px}
@@ -78,6 +78,16 @@ h1{font-size:clamp(48px,8vw,88px);font-weight:500;line-height:.95;margin:0 0 18p
 </style>
 </head>
 <body>
+<script>
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+window.addEventListener('pageshow', function () {
+  window.scrollTo(0, 0);
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+});
+window.scrollTo(0, 0);
+</script>
+
 
 <section class="page active" id="p1">
   <div class="inner">
