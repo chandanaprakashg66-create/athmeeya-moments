@@ -157,9 +157,16 @@ window.scrollTo(0, 0);
         <div>To order or<br>know more <strong>♥</strong></div>
       </div>
     </div>
-    <div class="insta">
-      <span class="insta-icon">◎</span><span>|</span><span>@athmeeya.moments</span>
-    </div>
+    <a class="insta" href="https://www.instagram.com/athmeeya.moments/" target="_blank" rel="noopener noreferrer" aria-label="Open Athmeeya Moments Instagram">
+  <span class="insta-icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24">
+      <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="17.4" cy="6.7" r="1.2" fill="currentColor"/>
+    </svg>
+  </span>
+  <span>@athmeeya.moments</span>
+</a>
     <p class="thanks">Thank you for supporting small! 💗</p>
     <div class="divider"></div>
   </div>
@@ -192,3 +199,10 @@ document.getElementById('gift').addEventListener('click',(e)=>{
 </script>
 </body>
 </html>
+
+<style>
+.insta{cursor:pointer;text-decoration:none!important}
+.insta-icon{width:31px;height:31px;display:inline-flex;align-items:center;justify-content:center;color:#f58ab6}
+.insta-icon svg{width:31px;height:31px;display:block}
+.insta:hover{background:rgba(245,138,182,.08);transform:translateY(-1px)}
+</style>
